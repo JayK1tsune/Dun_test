@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: de034e4c50dd93f4382a95acca0a386e, type: 3}
+  m_Name: Test2
+  m_EditorClassIdentifier: 
+  roomName: Jason
+  roomPrefab: {fileID: 2440214772993113952, guid: dbc945eee7a5cd542b85249ae9262ced, type: 3}
+  roomType: Water
+  roomColor: {r: 0.25666082, g: 0.735849, b: 0.19090424, a: 0}
