@@ -44,8 +44,8 @@ public class SpawnRoom : MonoBehaviour
                 }
             }
             if (dungeonSlot.isRoomValid == true)
-            {
-                Destroy(dungeonSlot.transform.GetChild(0).gameObject);
+            { //Not what i wanted to do, this deletes the card from the slot
+                //Destroy(dungeonSlot.transform.GetChild(0).gameObject);
             }
         }
     }
