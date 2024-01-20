@@ -9,11 +9,25 @@ public class SpawnRoom : MonoBehaviour
     DungeonSlot dungeonSlot;
 
     public GameObject[] rooms;
+    private Button button;
 
-    void Start()
+    void Awake()
     {
-        Button button = GetComponent<Button>();
-        button.onClick.AddListener(Room);
+        button = GetComponent<Button>();
+        if (button == null)
+        {
+            Debug.LogError("Button component not found on the GameObject with SpawnRoom script.");
+        }
+        else
+        {
+            Debug.Log("Button component found successfully.");
+            // Add the listener to the button
+            button.onClick.AddListener(Room);
+        }
+    }
+     public Button GetButton() 
+    {
+        return button;
     }
 
     void Update()
@@ -21,7 +35,7 @@ public class SpawnRoom : MonoBehaviour
         rooms = GameObject.FindGameObjectsWithTag("CardDunSlots");
     }
 
-    void Room()
+    void Room() 
     {
         foreach (GameObject r in rooms)
         {
@@ -50,3 +64,4 @@ public class SpawnRoom : MonoBehaviour
         }
     }
 }
+
