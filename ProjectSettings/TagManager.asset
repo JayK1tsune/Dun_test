@@ -9,6 +9,7 @@ TagManager:
   - Ice
   - CardDunSlots
   - Normal
+  - Teleporter
   layers:
   - Default
   - TransparentFX
