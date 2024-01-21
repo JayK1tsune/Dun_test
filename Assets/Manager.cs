@@ -5,6 +5,23 @@ using UnityEngine.UI;
 
 public class Manager  : MonoBehaviour
 {
+    private static Manager _instance;
+    public static Manager Instance
+    {
+        get
+        {
+            if (_instance == null)
+            {
+                GameObject go = new GameObject("Manager");
+                go.AddComponent<Manager>();
+            }
+            return _instance;
+        }
+    }
+    private void Awake()
+    {
+        _instance = this;
+    }
     [SerializeField] SpawnRoom spawnRoom;
     [SerializeField] GameObject Ui;
     [SerializeField] Animator animator;
