@@ -528,7 +528,7 @@ GameObject:
   - component: {fileID: 432293460}
   - component: {fileID: 432293462}
   m_Layer: 0
-  m_Name: TP_1A
+  m_Name: TP_1Exit
   m_TagString: Teleporter
   m_Icon: {fileID: 2974397684917235467, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -824,7 +824,7 @@ GameObject:
   - component: {fileID: 685724587}
   - component: {fileID: 685724589}
   m_Layer: 0
-  m_Name: TP_1B
+  m_Name: TP_2Exit
   m_TagString: Teleporter
   m_Icon: {fileID: -964228994112308473, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -971,7 +971,7 @@ GameObject:
   - component: {fileID: 745911445}
   - component: {fileID: 745911447}
   m_Layer: 0
-  m_Name: TP_2A
+  m_Name: TP_1Entrance
   m_TagString: Teleporter
   m_Icon: {fileID: 2974397684917235467, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -2190,7 +2190,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 76117df2f574b524a8c95c79255c32db, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _destination: {fileID: 1099726951}
+  _teleporters:
+  - {fileID: 432293460}
+  - {fileID: 685724587}
 --- !u!65 &1263797445
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3422,7 +3424,7 @@ GameObject:
   - component: {fileID: 2023338923}
   - component: {fileID: 2023338925}
   m_Layer: 0
-  m_Name: TP_2B
+  m_Name: TP_2Entrance
   m_TagString: Teleporter
   m_Icon: {fileID: -964228994112308473, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
