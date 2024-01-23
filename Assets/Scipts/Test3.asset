@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: Test3
   m_EditorClassIdentifier: 
   roomName: James
-  roomPrefab: {fileID: 1507227651319852652, guid: b48ec4b8f097be046aa02e86ab9d6819, type: 3}
+  roomPrefab: {fileID: 919132149155446097, guid: 127f5a4f035bf174589ad77ba2f3cb24, type: 3}
   roomType: Fire
   roomColor: {r: 0, g: 0.021962643, b: 1, a: 0}
