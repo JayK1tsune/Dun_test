@@ -10,7 +10,24 @@ public class TeleportScript : MonoBehaviour
 
     private void Start()
     {
+        _teleporters = new List<Transform>();
+        GameObject[] teleporterObjects = GameObject.FindGameObjectsWithTag("Teleporter");
+        
+        foreach (GameObject teleporterObject in teleporterObjects)
+        {
+            Transform teleporter = teleporterObject.transform;
+            if(!IsSamePrefab(teleporter)){
+                _teleporters.Add(teleporter);
+            }
+  
+        }
+ 
+
+
         StartCoroutine(ChangeTeleporterPeriodically(5f));
+    }
+    private bool IsSamePrefab(Transform teleporterObject){
+        return teleporterObject.parent == transform.parent;
     }
     private void OnTriggerEnter(Collider other)
     {
@@ -19,6 +36,7 @@ public class TeleportScript : MonoBehaviour
             Transform _destination = GetRandomTeleporter();
             player.Teleport(_destination.position);
             Debug.Log("Teleporting");
+            
         }
 
     }
@@ -47,6 +65,7 @@ public class TeleportScript : MonoBehaviour
 
     void Update()
     {
+
         Transform _destination = GetRandomTeleporter();
         Debug.Log(_destination);
     }

@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Data;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -52,7 +53,9 @@ public class Manager  : MonoBehaviour
     }
     private void GameStarted(){
         Ui.SetActive(false);
-        animator.Play("Pan_To_Start 0");
+        animator.gameObject.SetActive(false);
+        
+        //animator.Play("Pan_To_Start 0");
     }
 
 
