@@ -10,6 +10,7 @@ public class DungeonSlot : MonoBehaviour, IDropHandler
     public ScriptableObject room;
     public Transform spawnPoint;
     public bool isRoomValid = false;
+    public bool roomplayed = false;
 
     public void OnDrop(PointerEventData eventData)
     {
@@ -20,6 +21,7 @@ public class DungeonSlot : MonoBehaviour, IDropHandler
             room = grabber.roomPrefab; 
             //todo, is this the best way to do this?
             isRoomValid = droppedObject.gameObject.GetComponent<Grabber>().played = true; 
+            roomplayed = true;
         }
     }
 
@@ -30,7 +32,7 @@ public class DungeonSlot : MonoBehaviour, IDropHandler
         {
             Debug.Log(gameObject.transform.childCount);
             DeleteData();
-            Debug.Log("Invalid room type");
+           // Debug.Log("Invalid room type");
         }
     }
     private void DeleteData(){

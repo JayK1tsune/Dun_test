@@ -11,7 +11,7 @@ public class TeleportScript : MonoBehaviour
     private void Start()
     {
         _teleporters = new List<Transform>();
-        GameObject[] teleporterObjects = GameObject.FindGameObjectsWithTag("Teleporter");
+        GameObject[] teleporterObjects = GameObject.FindGameObjectsWithTag("EntranceTP");
         
         foreach (GameObject teleporterObject in teleporterObjects)
         {
@@ -46,9 +46,16 @@ public class TeleportScript : MonoBehaviour
         Gizmos.color = Color.blue;
         foreach (Transform teleporter in _teleporters)
         {
-            Gizmos.DrawWireSphere(teleporter.position, 4f);
-            var direction = teleporter.TransformDirection(Vector3.forward);
-            Gizmos.DrawRay(teleporter.position, direction);
+            if (teleporter == null)
+            {
+                continue;
+            }
+            else
+            {
+                Gizmos.DrawWireSphere(teleporter.position, 4f);
+                var direction = teleporter.TransformDirection(Vector3.forward);
+                Gizmos.DrawRay(teleporter.position, direction);
+            }
         }
     }
 
@@ -67,7 +74,7 @@ public class TeleportScript : MonoBehaviour
     {
 
         Transform _destination = GetRandomTeleporter();
-        Debug.Log(_destination);
+        //Debug.Log(_destination);
     }
 
     private IEnumerator ChangeTeleporterPeriodically(float interval)

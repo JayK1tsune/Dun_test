@@ -10,6 +10,7 @@ public class SpawnRoom : MonoBehaviour
 
     public GameObject[] rooms;
     private Button button;
+    [HideInInspector]public bool hasPlayed = false;
 
     void Awake()
     {
@@ -49,8 +50,11 @@ public class SpawnRoom : MonoBehaviour
                 if (dungeonLayoutSpawn != null && dungeonLayoutSpawn.roomPrefab != null)
                 {
                     // Instantiate the room prefab from the ScriptableObject
-                    GameObject room = Instantiate(dungeonLayoutSpawn.roomPrefab, dungeonSlot.spawnPoint.position, Quaternion.identity);
+                    //can i spawn the room as a child of the slot?
+                    
+                    GameObject room = Instantiate(dungeonLayoutSpawn.roomPrefab, dungeonSlot.spawnPoint.position, Quaternion.identity, dungeonSlot.spawnPoint);
                     room.name = dungeonLayoutSpawn.roomName;
+                    
                 }
                 else
                 {
@@ -58,7 +62,9 @@ public class SpawnRoom : MonoBehaviour
                 }
             }
             if (dungeonSlot.isRoomValid == true)
-            { //Not what i wanted to do, this deletes the card from the slot
+            { 
+                hasPlayed = true;
+                //Not what i wanted to do, this deletes the card from the slot
                 //Destroy(dungeonSlot.transform.GetChild(0).gameObject);
             }
         }

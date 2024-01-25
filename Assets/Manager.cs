@@ -22,11 +22,19 @@ public class Manager  : MonoBehaviour
     private void Awake()
     {
         _instance = this;
+        if(Ui.gameObject == false)
+        {
+            Ui.SetActive(true);
+        }
+    
+    
     }
     [SerializeField] SpawnRoom spawnRoom;
     [SerializeField] GameObject Ui;
     [SerializeField] Animator animator;
+    [SerializeField] GameObject InGameUi;
     private bool hasPlayed = false;
+    
    
   
 
@@ -54,6 +62,7 @@ public class Manager  : MonoBehaviour
     private void GameStarted(){
         Ui.SetActive(false);
         animator.gameObject.SetActive(false);
+        InGameUi.SetActive(true);
         
         //animator.Play("Pan_To_Start 0");
     }
