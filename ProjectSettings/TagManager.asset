@@ -16,6 +16,7 @@ TagManager:
   - Throne
   - WaitingRoom
   - Hero
+  - Enemy
   layers:
   - Default
   - TransparentFX
