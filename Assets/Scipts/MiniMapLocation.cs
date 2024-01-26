@@ -9,7 +9,10 @@ public class MiniMapLocation : MonoBehaviour
     public GameObject DungeonSlot;
     public GameObject Manager;
     public Camera Camera;
-    [SerializeField]private GameObject[] OtherCamera;
+
+    //these need to be a lsit of cameras
+    public List<Camera> OtherCameraList = new List<Camera>();
+    //[SerializeField]private GameObject[] OtherCamera;
     private Button button;
     [SerializeField] GameObject CameraObject;
     public GameObject[] Heros;
@@ -34,14 +37,35 @@ public class MiniMapLocation : MonoBehaviour
             Debug.Log("Button component found successfully.");
             // Add the listener to the button
             button.onClick.AddListener(CameraMove);
+            //button.onClick.AddListener(AddCamera);
         }
 
         
     }
     void Update()
     {
-    OtherCamera = GameObject.FindGameObjectsWithTag("DungeonCamera");
-    Heros = GameObject.FindGameObjectsWithTag("Player");
+        //make a list of all the cameras in the scene
+        Camera = CameraObject.GetComponentInChildren<Camera>();
+        GameObject[] OtherCamera = GameObject.FindGameObjectsWithTag("DungeonCamera");
+        foreach (GameObject c in OtherCamera)
+        {
+            //add the camera to the list only once
+            //dont add the camera that is in the room
+            //add the cameras if the list is empty
+            if (c != CameraObject)
+            {
+                if (!OtherCameraList.Contains(c.GetComponent<Camera>()))
+                {
+                    OtherCameraList.Add(c.GetComponent<Camera>());
+                }
+            }
+            if (OtherCameraList.Count <= 1)
+            {
+                OtherCameraList.Add(c.GetComponent<Camera>());
+            }
+
+        }
+        Heros = GameObject.FindGameObjectsWithTag("Player");
 
     if (DungeonSlot.GetComponent<DungeonSlot>().roomplayed == true)
     {
@@ -72,14 +96,49 @@ public class MiniMapLocation : MonoBehaviour
 
     void CameraMove()
     {
-        Camera.gameObject.SetActive(true);
-        foreach (GameObject c in OtherCamera)
+        Camera = OtherCameraList[0];
+        //swap to the camera that is attached to the script
+        CameraObject.SetActive(true);
+        //disable all the other cameras if they are not the camera atatched to the script
+        foreach (Camera c in OtherCameraList)
         {
-            c.SetActive(false);
+            if (c != Camera)
+            {
+                c.gameObject.SetActive(false);
+            }
         }
+        //reset the list of cameras
+        foreach (GameObject c in GameObject.FindGameObjectsWithTag("DungeonCamera"))
+        {
+            // Add the camera to the list only once
+            // Don't add the camera that is in the room
+            if (c != CameraObject && !OtherCameraList.Contains(c.GetComponent<Camera>()))
+            {
+                OtherCameraList.Add(c.GetComponent<Camera>());
+            }
+        }
+        AddCamera();
+        
     }
 
+    void AddCamera()
+    {
+        Camera = OtherCameraList[0];
 
+        //OtherCameraList.Clear();
+        GameObject[] otherCameras = GameObject.FindGameObjectsWithTag("DungeonCamera");
 
+        foreach (GameObject c in otherCameras)
+        {
+            Camera cameraComponent = c.GetComponent<Camera>();
+
+            // Add the camera to the list only once
+            // Don't add the camera that is in the room and not the one in CameraObject
+            if (c != CameraObject && cameraComponent != null && cameraComponent != Camera)
+            {
+                OtherCameraList.Add(cameraComponent);
+            }
+        }
+    }
 
 }
