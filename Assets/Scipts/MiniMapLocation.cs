@@ -45,7 +45,7 @@ public class MiniMapLocation : MonoBehaviour
     void Update()
     {
         //make a list of all the cameras in the scene
-        Camera = CameraObject.GetComponentInChildren<Camera>();
+        
         GameObject[] OtherCamera = GameObject.FindGameObjectsWithTag("DungeonCamera");
         foreach (GameObject c in OtherCamera)
         {
@@ -58,10 +58,6 @@ public class MiniMapLocation : MonoBehaviour
                 {
                     OtherCameraList.Add(c.GetComponent<Camera>());
                 }
-            }
-            if (OtherCameraList.Count <= 1)
-            {
-                OtherCameraList.Add(c.GetComponent<Camera>());
             }
 
         }
@@ -96,10 +92,9 @@ public class MiniMapLocation : MonoBehaviour
 
     void CameraMove()
     {
-        Camera = OtherCameraList[0];
-        //swap to the camera that is attached to the script
-        CameraObject.SetActive(true);
-        //disable all the other cameras if they are not the camera atatched to the script
+        Camera = CameraObject.GetComponentInChildren<Camera>();
+
+        // Disable all other cameras if they are not the camera attached to the script
         foreach (Camera c in OtherCameraList)
         {
             if (c != Camera)
@@ -107,25 +102,24 @@ public class MiniMapLocation : MonoBehaviour
                 c.gameObject.SetActive(false);
             }
         }
-        //reset the list of cameras
-        foreach (GameObject c in GameObject.FindGameObjectsWithTag("DungeonCamera"))
+
+        // Reset the list of cameras
+        OtherCameraList.Clear();
+
+        // Add the camera to the list only once
+        // Don't add the camera that is in the room
+        if (!OtherCameraList.Contains(Camera))
         {
-            // Add the camera to the list only once
-            // Don't add the camera that is in the room
-            if (c != CameraObject && !OtherCameraList.Contains(c.GetComponent<Camera>()))
-            {
-                OtherCameraList.Add(c.GetComponent<Camera>());
-            }
+            OtherCameraList.Add(Camera);
         }
+
         AddCamera();
-        
     }
 
     void AddCamera()
     {
-        Camera = OtherCameraList[0];
-
-        //OtherCameraList.Clear();
+        // Clear the list and repopulate it
+        OtherCameraList.Clear();
         GameObject[] otherCameras = GameObject.FindGameObjectsWithTag("DungeonCamera");
 
         foreach (GameObject c in otherCameras)
@@ -140,5 +134,7 @@ public class MiniMapLocation : MonoBehaviour
             }
         }
     }
+
+
 
 }
