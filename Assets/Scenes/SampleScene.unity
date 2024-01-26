@@ -132,6 +132,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 52626378}
+  - component: {fileID: 52626379}
   m_Layer: 0
   m_Name: Spawn4
   m_TagString: Untagged
@@ -154,6 +155,27 @@ Transform:
   m_Children: []
   m_Father: {fileID: 324021616}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &52626379
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 52626377}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 13.173954, y: 1, z: 8.290498}
+  m_Center: {x: -1.7400951, y: 0, z: 1.2732463}
 --- !u!1 &136556742
 GameObject:
   m_ObjectHideFlags: 0
@@ -241,7 +263,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!222 &192577053
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -456,8 +478,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 298693927}
+  - component: {fileID: 298693928}
   m_Layer: 0
-  m_Name: Spawn3
+  m_Name: Room2
   m_TagString: Untagged
   m_Icon: {fileID: -5487077368411116049, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -478,6 +501,27 @@ Transform:
   m_Children: []
   m_Father: {fileID: 324021616}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &298693928
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 298693926}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 12.31555, y: 1, z: 11.189052}
+  m_Center: {x: -5.98, y: -0.44, z: 0}
 --- !u!1 &324021615
 GameObject:
   m_ObjectHideFlags: 0
@@ -508,10 +552,10 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1564724105}
+  - {fileID: 1757371106}
   - {fileID: 1794603977}
   - {fileID: 298693927}
   - {fileID: 52626378}
-  - {fileID: 1757371106}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &404841336
@@ -569,6 +613,8 @@ MonoBehaviour:
   Manager: {fileID: 939106485}
   Camera: {fileID: 0}
   OtherCamera: []
+  CameraObject: {fileID: 1757371105}
+  Heros: []
 --- !u!114 &404841339
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -665,7 +711,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 8c0844361eb49614e834a4bd74997cbf, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -4.33
+      value: -3.45
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 8c0844361eb49614e834a4bd74997cbf, type: 3}
       propertyPath: m_LocalPosition.z
@@ -779,6 +825,8 @@ MonoBehaviour:
   Manager: {fileID: 939106485}
   Camera: {fileID: 0}
   OtherCamera: []
+  CameraObject: {fileID: 1564724104}
+  Heros: []
 --- !u!114 &525317220
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1233,7 +1281,7 @@ CharacterController:
   m_StepOffset: 0.3
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Center: {x: 0, y: 0.58, z: 0}
 --- !u!136 &757090097
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -1419,10 +1467,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5789e15507ec1d54282949f7f7843c4c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  DungeonSlot: {fileID: 1100798660}
+  DungeonSlot: {fileID: 1556568542}
   Manager: {fileID: 939106485}
   Camera: {fileID: 0}
   OtherCamera: []
+  CameraObject: {fileID: 298693926}
+  Heros: []
 --- !u!114 &830474789
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1519,7 +1569,7 @@ GameObject:
   - component: {fileID: 928035891}
   - component: {fileID: 928035894}
   m_Layer: 5
-  m_Name: Image (1)
+  m_Name: Throne
   m_TagString: CardDunSlots
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1556,9 +1606,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3eb0d079366742b4f89505f86eb019c4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  roomName: Fire
+  roomName: Normal
   room: {fileID: 0}
-  spawnPoint: {fileID: 1564724105}
+  spawnPoint: {fileID: 1757371106}
   isRoomValid: 0
   roomplayed: 0
 --- !u!114 &928035892
@@ -1574,7 +1624,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 0.037613455, b: 0, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -1711,14 +1761,14 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1751049609}
-  - {fileID: 928035890}
   - {fileID: 1462659574}
+  - {fileID: 928035890}
   - {fileID: 1100798661}
   - {fileID: 1556568543}
   - {fileID: 2011900122}
+  - {fileID: 1995208598}
   - {fileID: 1221143181}
   - {fileID: 1467250634}
-  - {fileID: 1995208598}
   - {fileID: 291390503}
   m_Father: {fileID: 801075791}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1916,7 +1966,7 @@ GameObject:
   - component: {fileID: 1100798663}
   - component: {fileID: 1100798662}
   m_Layer: 5
-  m_Name: Image (10)
+  m_Name: Slot1
   m_TagString: CardDunSlots
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2071,10 +2121,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5789e15507ec1d54282949f7f7843c4c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  DungeonSlot: {fileID: 1556568542}
+  DungeonSlot: {fileID: 1100798660}
   Manager: {fileID: 939106485}
   Camera: {fileID: 0}
   OtherCamera: []
+  CameraObject: {fileID: 1794603976}
+  Heros: []
 --- !u!114 &1201518611
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2170,8 +2222,8 @@ GameObject:
   - component: {fileID: 1221143183}
   - component: {fileID: 1221143182}
   m_Layer: 5
-  m_Name: Card (3)
-  m_TagString: Fire
+  m_Name: DefaultRoom
+  m_TagString: Normal
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2192,7 +2244,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 1042, y: -789}
+  m_AnchoredPosition: {x: 341.5, y: -785.6}
   m_SizeDelta: {x: 150, y: 150}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1221143182
@@ -2208,7 +2260,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   image: {fileID: 1221143183}
-  roomPrefab: {fileID: 11400000, guid: 29e84233fc43e78488a42d9ddbe21482, type: 2}
+  roomPrefab: {fileID: 11400000, guid: e266ad144d57c664bb62626b52c75cac, type: 2}
   played: 0
   parentAfterDrag: {fileID: 0}
 --- !u!114 &1221143183
@@ -2263,7 +2315,7 @@ GameObject:
   - component: {fileID: 1462659576}
   - component: {fileID: 1462659575}
   m_Layer: 5
-  m_Name: Throne
+  m_Name: WaitingRoom
   m_TagString: CardDunSlots
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2324,9 +2376,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3eb0d079366742b4f89505f86eb019c4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  roomName: Fire
+  roomName: Normal
   room: {fileID: 0}
-  spawnPoint: {fileID: 1757371106}
+  spawnPoint: {fileID: 1564724105}
   isRoomValid: 0
   roomplayed: 0
 --- !u!114 &1462659577
@@ -2342,7 +2394,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 0.037613455, b: 0, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -2380,8 +2432,8 @@ GameObject:
   - component: {fileID: 1467250636}
   - component: {fileID: 1467250635}
   m_Layer: 5
-  m_Name: Card (2)
-  m_TagString: Fire
+  m_Name: DefaultRoom
+  m_TagString: Normal
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2402,7 +2454,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 662, y: -778}
+  m_AnchoredPosition: {x: 1081, y: -789}
   m_SizeDelta: {x: 150, y: 150}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1467250635
@@ -2418,7 +2470,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   image: {fileID: 1467250636}
-  roomPrefab: {fileID: 11400000, guid: 8bf209e970465e4439e7af52c5bc1ec2, type: 2}
+  roomPrefab: {fileID: 11400000, guid: b6233ac2fd5db7b4881077d5826acfc1, type: 2}
   played: 0
   parentAfterDrag: {fileID: 0}
 --- !u!114 &1467250636
@@ -2434,7 +2486,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.3166077, g: 1, b: 0, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -2473,7 +2525,7 @@ GameObject:
   - component: {fileID: 1556568545}
   - component: {fileID: 1556568544}
   m_Layer: 5
-  m_Name: Image (7)
+  m_Name: Slot2
   m_TagString: CardDunSlots
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2552,7 +2604,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.3703069, g: 0.109069064, b: 0.4056604, a: 1}
+  m_Color: {r: 1, g: 0.00969137, b: 0, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -2586,8 +2638,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1564724105}
+  - component: {fileID: 1564724106}
   m_Layer: 0
-  m_Name: Spawn1
+  m_Name: WaitingRoom
   m_TagString: Untagged
   m_Icon: {fileID: -5487077368411116049, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -2608,6 +2661,27 @@ Transform:
   m_Children: []
   m_Father: {fileID: 324021616}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &1564724106
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1564724104}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 14.785591, y: 1.3201716, z: 9.2830715}
+  m_Center: {x: 0.17903471, y: -1.05, z: 0.50652695}
 --- !u!1 &1751049608
 GameObject:
   m_ObjectHideFlags: 0
@@ -2765,8 +2839,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1757371106}
+  - component: {fileID: 1757371107}
   m_Layer: 0
-  m_Name: Spawn5
+  m_Name: Throne
   m_TagString: Untagged
   m_Icon: {fileID: 7422848464349959988, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -2787,6 +2862,27 @@ Transform:
   m_Children: []
   m_Father: {fileID: 324021616}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &1757371107
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1757371105}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 11.459244, y: 1, z: 8.532815}
+  m_Center: {x: 0.6376419, y: 0, z: -0.047692776}
 --- !u!1 &1794603976
 GameObject:
   m_ObjectHideFlags: 0
@@ -2796,8 +2892,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1794603977}
+  - component: {fileID: 1794603978}
   m_Layer: 0
-  m_Name: Spawn2
+  m_Name: Room1
   m_TagString: Untagged
   m_Icon: {fileID: -5487077368411116049, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -2818,6 +2915,27 @@ Transform:
   m_Children: []
   m_Father: {fileID: 324021616}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &1794603978
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1794603976}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 6.8912315, y: 0.5366714, z: 4.8926535}
+  m_Center: {x: -3.33, y: -0.18, z: -0.0978446}
 --- !u!1 &1995208597
 GameObject:
   m_ObjectHideFlags: 0
@@ -2831,7 +2949,7 @@ GameObject:
   - component: {fileID: 1995208599}
   - component: {fileID: 1995208601}
   m_Layer: 5
-  m_Name: Card
+  m_Name: IceCard
   m_TagString: Ice
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2923,7 +3041,7 @@ GameObject:
   - component: {fileID: 2011900124}
   - component: {fileID: 2011900123}
   m_Layer: 5
-  m_Name: Card (1)
+  m_Name: FireRoom
   m_TagString: Fire
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

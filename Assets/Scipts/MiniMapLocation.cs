@@ -11,6 +11,8 @@ public class MiniMapLocation : MonoBehaviour
     public Camera Camera;
     [SerializeField]private GameObject[] OtherCamera;
     private Button button;
+    [SerializeField] GameObject CameraObject;
+    public GameObject[] Heros;
  
     private Image _image;
     // Start is called before the first frame update
@@ -18,9 +20,13 @@ public class MiniMapLocation : MonoBehaviour
     private void Awake() {
         _image = GetComponent<Image>();
         button = GetComponent<Button>();
-        Camera = GetComponent<Camera>();
+        //check the children of the CameraObject for a Camera component
+        Camera = CameraObject.GetComponentInChildren<Camera>();
+
+        
         if (button == null)
         {
+            Camera = DungeonSlot.GetComponentInChildren<Camera>();
             Debug.LogError("Button component not found on the GameObject with SpawnRoom script.");
         }
         else
@@ -34,18 +40,35 @@ public class MiniMapLocation : MonoBehaviour
     }
     void Update()
     {
-        OtherCamera = GameObject.FindGameObjectsWithTag("DungeonCamera");
-        
-        if(DungeonSlot.GetComponent<DungeonSlot>().roomplayed == true)
-        {
-            _image.color = Color.green;
-        }
-        else
-        {
-            _image.color = Color.red;
-        }
+    OtherCamera = GameObject.FindGameObjectsWithTag("DungeonCamera");
+    Heros = GameObject.FindGameObjectsWithTag("Player");
 
+    if (DungeonSlot.GetComponent<DungeonSlot>().roomplayed == true)
+    {
+        _image.color = Color.green;
+
+        // is hero in the room
+        foreach (GameObject hero in Heros)
+        {
+            // check to see if the hero is in the room
+            Collider heroCollider = hero.GetComponent<Collider>();
+            Collider CameraCollider = CameraObject.GetComponent<Collider>();
+
+            if (heroCollider != null && CameraCollider != null)
+            {
+                if (heroCollider.bounds.Intersects(CameraCollider.bounds))
+                {
+                    _image.color = Color.yellow;
+                    Debug.Log("Hero in room");
+                }
+            }
+        }
     }
+    else
+    {
+        _image.color = Color.red;
+    }
+}
 
     void CameraMove()
     {
@@ -55,6 +78,8 @@ public class MiniMapLocation : MonoBehaviour
             c.SetActive(false);
         }
     }
+
+
 
 
 }

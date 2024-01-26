@@ -13,6 +13,9 @@ TagManager:
   - EntranceTP
   - Manager
   - DungeonCamera
+  - Throne
+  - WaitingRoom
+  - Hero
   layers:
   - Default
   - TransparentFX

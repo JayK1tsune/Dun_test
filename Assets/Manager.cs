@@ -19,6 +19,9 @@ public class Manager  : MonoBehaviour
             return _instance;
         }
     }
+
+    public List<GameObject> Heros { get; internal set; }
+
     private void Awake()
     {
         _instance = this;
@@ -56,13 +59,15 @@ public class Manager  : MonoBehaviour
     }
 
     private void Update() {
-
+        //add heros to the list of heros
+        
 
     }
     private void GameStarted(){
         Ui.SetActive(false);
         animator.gameObject.SetActive(false);
         InGameUi.SetActive(true);
+
         
         //animator.Play("Pan_To_Start 0");
     }
