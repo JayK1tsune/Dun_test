@@ -40,24 +40,24 @@ public class TeleportScript : MonoBehaviour
         }
 
     }
-    void OnDrawGizmos()
-    {
+    // void OnDrawGizmos()
+    // {
         
-        Gizmos.color = Color.blue;
-        foreach (Transform teleporter in _teleporters)
-        {
-            if (teleporter == null)
-            {
-                continue;
-            }
-            else
-            {
-                Gizmos.DrawWireSphere(teleporter.position, 4f);
-                var direction = teleporter.TransformDirection(Vector3.forward);
-                Gizmos.DrawRay(teleporter.position, direction);
-            }
-        }
-    }
+    //     Gizmos.color = Color.blue;
+    //     foreach (Transform teleporter in _teleporters)
+    //     {
+    //         if (teleporter == null)
+    //         {
+    //             continue;
+    //         }
+    //         else
+    //         {
+    //             Gizmos.DrawWireSphere(teleporter.position, 4f);
+    //             var direction = teleporter.TransformDirection(Vector3.forward);
+    //             Gizmos.DrawRay(teleporter.position, direction);
+    //         }
+    //     }
+    // }
 
     Transform GetRandomTeleporter()
     {

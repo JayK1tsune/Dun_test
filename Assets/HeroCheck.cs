@@ -25,6 +25,15 @@ public class HeroCheck : MonoBehaviour
         if(hero == other.gameObject)
         {
             anim.SetBool("EnemyClose", true);
+            anim.SetBool("EnemyGone", false);
+        }
+    }
+    private void OnTriggerExit(Collider other)
+    {
+        if (hero == other.gameObject)
+        {
+            anim.SetBool("EnemyGone", true);
+            anim.SetBool("EnemyClose", false);
         }
     }
 }

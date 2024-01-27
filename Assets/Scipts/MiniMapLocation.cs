@@ -8,7 +8,7 @@ public class MiniMapLocation : MonoBehaviour
 {
     public GameObject DungeonSlot;
     public GameObject Manager;
-    public Camera Camera;
+    public Camera MiniMapCamera;
 
     //these need to be a lsit of cameras
     public List<Camera> OtherCameraList = new List<Camera>();
@@ -24,12 +24,12 @@ public class MiniMapLocation : MonoBehaviour
         _image = GetComponent<Image>();
         button = GetComponent<Button>();
         //check the children of the CameraObject for a Camera component
-        Camera = CameraObject.GetComponentInChildren<Camera>();
+       //get mini map camera
+        
 
         
         if (button == null)
         {
-            Camera = DungeonSlot.GetComponentInChildren<Camera>();
             Debug.LogError("Button component not found on the GameObject with SpawnRoom script.");
         }
         else
@@ -37,13 +37,23 @@ public class MiniMapLocation : MonoBehaviour
             Debug.Log("Button component found successfully.");
             // Add the listener to the button
             button.onClick.AddListener(CameraMove);
-            //button.onClick.AddListener(AddCamera);
+            
         }
 
         
     }
     void Update()
     {
+        //if statement to see if the room camera is the one in the room
+        //if it is then dont add it to the list
+        if (CameraObject.GetComponent<Camera>() != null)
+        {
+            if (!OtherCameraList.Contains(CameraObject.GetComponent<Camera>()))
+            {
+                OtherCameraList.Add(CameraObject.GetComponent<Camera>());
+            }
+        }
+        MiniMapCamera = CameraObject.GetComponentInChildren<Camera>();
         //make a list of all the cameras in the scene
         
         GameObject[] OtherCamera = GameObject.FindGameObjectsWithTag("DungeonCamera");
@@ -63,78 +73,45 @@ public class MiniMapLocation : MonoBehaviour
         }
         Heros = GameObject.FindGameObjectsWithTag("Player");
 
-    if (DungeonSlot.GetComponent<DungeonSlot>().roomplayed == true)
-    {
-        _image.color = Color.green;
-
-        // is hero in the room
-        foreach (GameObject hero in Heros)
+        if (DungeonSlot.GetComponent<DungeonSlot>().roomplayed == true)
         {
-            // check to see if the hero is in the room
-            Collider heroCollider = hero.GetComponent<Collider>();
-            Collider CameraCollider = CameraObject.GetComponent<Collider>();
+            _image.color = Color.green;
 
-            if (heroCollider != null && CameraCollider != null)
+            // is hero in the room
+            foreach (GameObject hero in Heros)
             {
-                if (heroCollider.bounds.Intersects(CameraCollider.bounds))
+                // check to see if the hero is in the room
+                Collider heroCollider = hero.GetComponent<Collider>();
+                Collider CameraCollider = CameraObject.GetComponent<Collider>();
+
+                if (heroCollider != null && CameraCollider != null)
                 {
-                    _image.color = Color.yellow;
-                    Debug.Log("Hero in room");
+                    if (heroCollider.bounds.Intersects(CameraCollider.bounds))
+                    {
+                        _image.color = Color.yellow;
+                        Debug.Log("Hero in room");
+                    }
                 }
             }
         }
+        else
+        {
+            _image.color = Color.red;
+        }
     }
-    else
-    {
-        _image.color = Color.red;
-    }
-}
 
     void CameraMove()
     {
-        Camera = CameraObject.GetComponentInChildren<Camera>();
 
-        // Disable all other cameras if they are not the camera attached to the script
+        //disable all the other cameras
         foreach (Camera c in OtherCameraList)
         {
-            if (c != Camera)
-            {
-                c.gameObject.SetActive(false);
-            }
+            c.enabled = false;
         }
+        //enable the mini map camera
+        MiniMapCamera.enabled = true;
 
-        // Reset the list of cameras
-        OtherCameraList.Clear();
-
-        // Add the camera to the list only once
-        // Don't add the camera that is in the room
-        if (!OtherCameraList.Contains(Camera))
-        {
-            OtherCameraList.Add(Camera);
-        }
-
-        AddCamera();
     }
-
-    void AddCamera()
-    {
-        // Clear the list and repopulate it
-        OtherCameraList.Clear();
-        GameObject[] otherCameras = GameObject.FindGameObjectsWithTag("DungeonCamera");
-
-        foreach (GameObject c in otherCameras)
-        {
-            Camera cameraComponent = c.GetComponent<Camera>();
-
-            // Add the camera to the list only once
-            // Don't add the camera that is in the room and not the one in CameraObject
-            if (c != CameraObject && cameraComponent != null && cameraComponent != Camera)
-            {
-                OtherCameraList.Add(cameraComponent);
-            }
-        }
-    }
-
 
 
 }

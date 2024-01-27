@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.44205663, g: 0.49104142, b: 0.5709677, a: 1}
+  m_IndirectSpecularColor: {r: 0.44205636, g: 0.491041, b: 0.57096714, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -609,10 +609,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5789e15507ec1d54282949f7f7843c4c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  DungeonSlot: {fileID: 1462659573}
+  DungeonSlot: {fileID: 928035889}
   Manager: {fileID: 939106485}
-  Camera: {fileID: 0}
-  OtherCamera: []
+  MiniMapCamera: {fileID: 0}
+  OtherCameraList: []
   CameraObject: {fileID: 1757371105}
   Heros: []
 --- !u!114 &404841339
@@ -821,10 +821,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5789e15507ec1d54282949f7f7843c4c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  DungeonSlot: {fileID: 928035889}
+  DungeonSlot: {fileID: 1462659573}
   Manager: {fileID: 939106485}
-  Camera: {fileID: 0}
-  OtherCamera: []
+  MiniMapCamera: {fileID: 0}
+  OtherCameraList: []
   CameraObject: {fileID: 1564724104}
   Heros: []
 --- !u!114 &525317220
@@ -1469,8 +1469,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   DungeonSlot: {fileID: 1556568542}
   Manager: {fileID: 939106485}
-  Camera: {fileID: 0}
-  OtherCamera: []
+  MiniMapCamera: {fileID: 0}
+  OtherCameraList: []
   CameraObject: {fileID: 298693926}
   Heros: []
 --- !u!114 &830474789
@@ -1828,7 +1828,7 @@ GameObject:
   - component: {fileID: 987051224}
   m_Layer: 0
   m_Name: Camera
-  m_TagString: Untagged
+  m_TagString: MainCamera
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2123,8 +2123,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   DungeonSlot: {fileID: 1100798660}
   Manager: {fileID: 939106485}
-  Camera: {fileID: 0}
-  OtherCamera: []
+  MiniMapCamera: {fileID: 0}
+  OtherCameraList: []
   CameraObject: {fileID: 1794603976}
   Heros: []
 --- !u!114 &1201518611
