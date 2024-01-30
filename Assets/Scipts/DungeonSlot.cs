@@ -23,6 +23,7 @@ public class DungeonSlot : MonoBehaviour, IDropHandler
             isRoomValid = droppedObject.gameObject.GetComponent<Grabber>().played = true; 
             roomplayed = true;
         }
+        
     }
 
     void FixedUpdate()
@@ -46,6 +47,11 @@ public class DungeonSlot : MonoBehaviour, IDropHandler
     {
         //check tag
         return droppedObject.CompareTag(roomName);
+    }
+    private bool IsRoomWaiting(GameObject droppedObject)
+    {
+        //check tag
+        return droppedObject.CompareTag("WaitingRoom");
     }
 }
 

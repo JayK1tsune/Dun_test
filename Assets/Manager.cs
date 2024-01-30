@@ -36,6 +36,11 @@ public class Manager  : MonoBehaviour
     [SerializeField] GameObject Ui;
     [SerializeField] Animator animator;
     [SerializeField] GameObject InGameUi;
+    [SerializeField] public GameObject waitingRoom;
+    [SerializeField] public ScriptableObject So_waitingRoom;
+
+    [SerializeField] public GameObject throne;
+    [SerializeField] public ScriptableObject So_throne;
     private bool hasPlayed = false;
     
    

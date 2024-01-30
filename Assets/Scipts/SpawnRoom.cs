@@ -3,17 +3,22 @@ using System.Collections.Generic;
 using UnityEngine;
 using DungeonLayout;
 using UnityEngine.UI;
+using System;
 
 public class SpawnRoom : MonoBehaviour
 {
     DungeonSlot dungeonSlot;
+    Manager manager;
 
     public GameObject[] rooms;
+
     private Button button;
     [HideInInspector]public bool hasPlayed = false;
 
     void Awake()
     {
+        
+       
         button = GetComponent<Button>();
         if (button == null)
         {
@@ -25,6 +30,10 @@ public class SpawnRoom : MonoBehaviour
             // Add the listener to the button
             button.onClick.AddListener(Room);
         }
+        
+    }
+    private void Start() {
+        manager = Manager.Instance;
     }
      public Button GetButton() 
     {
@@ -34,6 +43,7 @@ public class SpawnRoom : MonoBehaviour
     void Update()
     {
         rooms = GameObject.FindGameObjectsWithTag("CardDunSlots");
+
     }
 
     void Room() 
@@ -68,6 +78,19 @@ public class SpawnRoom : MonoBehaviour
                 //Destroy(dungeonSlot.transform.GetChild(0).gameObject);
             }
         }
+        //spawn the waiting room and throne if null through manager
+        DungeonLayoutSpawn dungeonLayoutSpawnWaiting = manager.So_waitingRoom as DungeonLayoutSpawn;
+        DungeonLayoutSpawn dungeonLayoutSpawnThrone = manager.So_throne as DungeonLayoutSpawn;
+        GameObject waitingroom = Instantiate(dungeonLayoutSpawnWaiting.roomPrefab, manager.waitingRoom.transform.position, Quaternion.identity, manager.waitingRoom.transform);
+        waitingroom.name = dungeonLayoutSpawnWaiting.roomName;
+
+        GameObject Throne = Instantiate(dungeonLayoutSpawnThrone.roomPrefab, manager.throne.transform.position, Quaternion.identity, manager.throne.transform);
+        Throne.name = dungeonLayoutSpawnThrone.roomName;
+        //make waiting room and throne played true
+
+
     }
+
+
 }
 
