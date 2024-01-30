@@ -22,7 +22,7 @@ public class Grabber : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragH
         parentAfterDrag = transform.parent;
         transform.SetParent(transform.root);
         transform.SetAsLastSibling();
-        image.raycastTarget = false;
+        image.raycastTarget = false; //
     }
 
     public void OnDrag(PointerEventData eventData)

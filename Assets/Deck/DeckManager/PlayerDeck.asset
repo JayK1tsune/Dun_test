@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 19f48aedac877984ea7ace2e6f7c37c6, type: 3}
+  m_Name: PlayerDeck
+  m_EditorClassIdentifier: 
+  <CardsinCollection>k__BackingField:
+  - {fileID: 11400000, guid: 65037a66dddc7144f8981fabe0abb2f7, type: 2}
+  - {fileID: 11400000, guid: 327be0009deb6304387299ecb4df4cd0, type: 2}
+  - {fileID: 11400000, guid: 5def426312976114cbf1996a55eead66, type: 2}
+  - {fileID: 11400000, guid: 9965c7e0b0935654481773f1892790d8, type: 2}
+  - {fileID: 11400000, guid: f1a508a6e164b6843bd7adc56512d63f, type: 2}
