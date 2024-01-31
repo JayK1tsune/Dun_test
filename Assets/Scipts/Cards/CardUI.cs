@@ -48,6 +48,7 @@ public class CardUI : MonoBehaviour
         if (card.CardData != null && card.CardData != null)
         {
             SetCardText();
+            SetCardTypeText();
             SetCardType();
             SetCardAttribute();
             SetCardImage();
@@ -80,6 +81,7 @@ public class CardUI : MonoBehaviour
         }
     }
 
+
     private void SetCardAttribute()
     {
         switch (card.CardData.CardAttribute) // strength / magic / swift
@@ -92,6 +94,21 @@ public class CardUI : MonoBehaviour
                 break;
             case CardAttribute.Swift:
                 typeImage.sprite = swiftIcon;
+                break;
+        }
+    }
+    private void SetCardTypeText()
+    {
+        switch (card.CardData.CardElement) // minon / trap / special
+        {
+            case CardElement.Minion:
+                cardType.text = "Minion";
+                break;
+            case CardElement.Trap:
+                cardType.text = "Trap";
+                break;
+            case CardElement.Special:
+                cardType.text = "Special";
                 break;
         }
     }
