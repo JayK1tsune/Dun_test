@@ -746,7 +746,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3eb0d079366742b4f89505f86eb019c4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  roomName: Ice
+  PlayingCard: PlayingCard
   room: {fileID: 0}
   spawnPoint: {fileID: 1646667595}
   isRoomValid: 0
@@ -1973,7 +1973,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3eb0d079366742b4f89505f86eb019c4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  roomName: Normal
+  PlayingCard: 
   room: {fileID: 0}
   spawnPoint: {fileID: 1757371106}
   isRoomValid: 0
@@ -2401,7 +2401,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3eb0d079366742b4f89505f86eb019c4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  roomName: Normal
+  PlayingCard: 
   room: {fileID: 0}
   spawnPoint: {fileID: 1794603977}
   isRoomValid: 0
@@ -2601,7 +2601,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1221143181
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2883,7 +2883,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3eb0d079366742b4f89505f86eb019c4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  roomName: Normal
+  PlayingCard: 
   room: {fileID: 0}
   spawnPoint: {fileID: 1794603977}
   isRoomValid: 0
@@ -3001,7 +3001,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3eb0d079366742b4f89505f86eb019c4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  roomName: Normal
+  PlayingCard: 
   room: {fileID: 11400000, guid: e266ad144d57c664bb62626b52c75cac, type: 2}
   spawnPoint: {fileID: 1564724105}
   isRoomValid: 0
@@ -3062,7 +3062,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1467250634
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3211,7 +3211,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3eb0d079366742b4f89505f86eb019c4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  roomName: Fire
+  PlayingCard: 
   room: {fileID: 0}
   spawnPoint: {fileID: 52626378}
   isRoomValid: 0
@@ -3963,7 +3963,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1995208598
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4055,7 +4055,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &2011900122
 RectTransform:
   m_ObjectHideFlags: 0

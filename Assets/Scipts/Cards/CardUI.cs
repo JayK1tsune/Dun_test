@@ -26,17 +26,16 @@ public class CardUI : MonoBehaviour
     [SerializeField] private Sprite swiftIcon;
 
     //add more sprites here backgrounds ect
-    private readonly string EFFECTTYPE_Minion = "Minion";
-    private readonly string EFFECTTYPE_Trap = "Trap";
-    private readonly string EFFECTTYPE_Special = "Special";
+
+
+    [Header("Room")]
+    [SerializeField] private GameObject roomPrefab;
 
     private void Awake()
     {
         card = GetComponent<Card>();
         SetCardUI();
-        SetCardType();
-        SetCardAttribute();
-        SetCardImage();
+
     }
 
     void OnValidate()
@@ -49,12 +48,16 @@ public class CardUI : MonoBehaviour
         if (card.CardData != null && card.CardData != null)
         {
             SetCardText();
+            SetCardType();
+            SetCardAttribute();
+            SetCardImage();
+            SetRoom();
         }
     }
     private void SetCardText()
     {
         cardName.text = card.CardData.CardName;
-        cardType.text = card.CardData.CardElement.ToString();
+        //cardType.text = card.CardData.CardElement.ToString();
         cardDescription.text = card.CardData.cardDescription;
 
     }
@@ -63,7 +66,7 @@ public class CardUI : MonoBehaviour
         switch (card.CardData.CardElement) // minon / trap / special
         {
             case CardElement.Minion:
-                
+                Debug.Log("Strength");
                 type.sprite = _strMinion;
                 break;
             case CardElement.Trap:
@@ -96,6 +99,11 @@ public class CardUI : MonoBehaviour
     private void SetCardImage()
     {
         cardImage.sprite = card.CardData.CardImage;
+    }
+
+    private void SetRoom()
+    {
+        roomPrefab = card.CardData.roomPrefab;
     }
 
 }

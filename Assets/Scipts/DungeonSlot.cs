@@ -6,7 +6,7 @@ using UnityEngine.EventSystems;
 
 public class DungeonSlot : MonoBehaviour, IDropHandler
 {
-    public string roomName;
+    public string PlayingCard;
     public ScriptableObject room;
     public Transform spawnPoint;
     public bool isRoomValid = false;
@@ -17,6 +17,8 @@ public class DungeonSlot : MonoBehaviour, IDropHandler
         GameObject droppedObject = eventData.pointerDrag;
         if(IsRoomTypeValid(droppedObject)){
             Grabber grabber = droppedObject.GetComponent<Grabber>();
+            CardMovment cardMovment = droppedObject.GetComponent<CardMovment>();
+            
             grabber.parentAfterDrag = transform;
             room = grabber.roomPrefab; 
             //todo, is this the best way to do this?
@@ -46,7 +48,7 @@ public class DungeonSlot : MonoBehaviour, IDropHandler
     private bool IsRoomTypeValid(GameObject droppedObject)
     {
         //check tag
-        return droppedObject.CompareTag(roomName);
+        return droppedObject.CompareTag(PlayingCard);
     }
     private bool IsRoomWaiting(GameObject droppedObject)
     {

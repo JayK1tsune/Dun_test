@@ -18,6 +18,7 @@ TagManager:
   - Hero
   - Enemy
   - CardCanvas
+  - PlayingCard
   layers:
   - Default
   - TransparentFX

@@ -12,6 +12,7 @@ public class ScriptableCard : ScriptableObject
     [field: SerializeField] public Sprite CardType { get; private set; }
     [field: SerializeField] public CardElement CardElement { get; private set; }
     [field: SerializeField] public CardAttribute CardAttribute { get; private set; }
+    [field: SerializeField] public GameObject roomPrefab { get; private set; }
 }
 
 

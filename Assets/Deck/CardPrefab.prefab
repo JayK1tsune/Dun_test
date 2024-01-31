@@ -66,7 +66,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 1c154df0a7dc3c440b89e58ec467081e, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 9f1fa6cdba17cc148b832078f9c5d5a8, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -141,7 +141,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Mr Frog
+  m_text: this is a test
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -275,8 +275,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: This Frog isn't all the usefull, but he flys around and might stop a hero
-    or two.
+  m_text: Test Card
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 2e498d1c8094910479dc3e1b768306a4, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 2e498d1c8094910479dc3e1b768306a4, type: 2}
@@ -410,7 +409,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: d156cface5e07f343ac85a9b0c9d5970, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 7869f751423032049b540b8a845f91e3, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -485,7 +484,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: d4fc0ba4422b2fa408e972946f50a49c, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 35dff74af9f98a840a9e29128bb06ee1, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -560,7 +559,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Minion
+  m_text: Trap
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 2e498d1c8094910479dc3e1b768306a4, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 2e498d1c8094910479dc3e1b768306a4, type: 2}
@@ -640,9 +639,10 @@ GameObject:
   - component: {fileID: 4265749081096625220}
   - component: {fileID: 855519851381331500}
   - component: {fileID: 6723203314637330302}
+  - component: {fileID: 6045436556102007294}
   m_Layer: 5
   m_Name: CardPrefab
-  m_TagString: Untagged
+  m_TagString: PlayingCard
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -697,6 +697,7 @@ MonoBehaviour:
   strengthIcon: {fileID: 21300000, guid: 35dff74af9f98a840a9e29128bb06ee1, type: 3}
   magicIcon: {fileID: 21300000, guid: 803a60ccd7ce1a0488a240540f2ca30d, type: 3}
   swiftIcon: {fileID: 21300000, guid: d4fc0ba4422b2fa408e972946f50a49c, type: 3}
+  roomPrefab: {fileID: 6008516789037307041, guid: 84afd971952fad9409b4fcc9c6e283fc, type: 3}
 --- !u!114 &6723203314637330302
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -709,7 +710,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9e300e041b2d06643ac50b4b9f0379df, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <CardData>k__BackingField: {fileID: 11400000, guid: f67ec66d2e41ddc4bbb9f35d6afd99b3, type: 2}
+  <CardData>k__BackingField: {fileID: 11400000, guid: 40f38d6534ad37a469845a8a081d2789, type: 2}
+--- !u!114 &6045436556102007294
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6645922434823943139}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ab77cfc9d0d49844faaa3a5697ab3198, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &9070983792947070918
 GameObject:
   m_ObjectHideFlags: 0

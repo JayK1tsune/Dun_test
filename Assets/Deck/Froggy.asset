@@ -17,5 +17,6 @@ MonoBehaviour:
     and might stop a hero or two.
   <CardImage>k__BackingField: {fileID: 21300000, guid: 92f9ebbfcfc028140a70739bacfba4d0, type: 3}
   <CardType>k__BackingField: {fileID: 21300000, guid: dfbf9f57ca0ac5244bca34959bd51bd1, type: 3}
-  <CardElement>k__BackingField: 1
+  <CardElement>k__BackingField: 0
   <CardAttribute>k__BackingField: 2
+  <roomPrefab>k__BackingField: {fileID: 919132149155446097, guid: 127f5a4f035bf174589ad77ba2f3cb24, type: 3}
