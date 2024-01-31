@@ -15,6 +15,7 @@ public class MiniMapLocation : MonoBehaviour
     //[SerializeField]private GameObject[] OtherCamera;
     private Button button;
     [SerializeField] GameObject CameraObject;
+
     public GameObject[] Heros;
  
     private Image _image;
@@ -73,7 +74,7 @@ public class MiniMapLocation : MonoBehaviour
         }
         Heros = GameObject.FindGameObjectsWithTag("Player");
 
-        if (DungeonSlot.GetComponent<DungeonSlot>().roomplayed == true)
+        if (DungeonSlot.GetComponent<DungeonSlot>().roomplayed == true || DungeonSlot.GetComponent<DungeonSlot>().roomplayed == false)
         {
             _image.color = Color.green;
 
@@ -96,7 +97,7 @@ public class MiniMapLocation : MonoBehaviour
         }
         else
         {
-            _image.color = Color.red;
+            _image.color = Color.blue;
         }
     }
 

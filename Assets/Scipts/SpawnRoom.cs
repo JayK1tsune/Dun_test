@@ -11,6 +11,7 @@ public class SpawnRoom : MonoBehaviour
     Manager manager;
 
     public GameObject[] rooms;
+    [SerializeField] private GameObject defaultRoom;
 
     private Button button;
     [HideInInspector]public bool hasPlayed = false;
@@ -71,11 +72,12 @@ public class SpawnRoom : MonoBehaviour
                     Debug.LogError("Invalid ScriptableObject or roomPrefab not set");
                 }
             }
-            if (dungeonSlot.isRoomValid == true)
+            if (dungeonSlot.room == null )
             { 
+                Instantiate(defaultRoom, dungeonSlot.spawnPoint.position, Quaternion.identity, dungeonSlot.spawnPoint);
                 hasPlayed = true;
-                //Not what i wanted to do, this deletes the card from the slot
-                //Destroy(dungeonSlot.transform.GetChild(0).gameObject);
+                    //Not what i wanted to do, this deletes the card from the slot
+                    //Destroy(dungeonSlot.transform.GetChild(0).gameObject);
             }
         }
         //spawn the waiting room and throne if null through manager

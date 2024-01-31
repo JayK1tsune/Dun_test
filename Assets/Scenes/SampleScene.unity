@@ -748,7 +748,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PlayingCard: PlayingCard
   room: {fileID: 0}
-  spawnPoint: {fileID: 1646667595}
+  spawnPoint: {fileID: 1794603977}
   isRoomValid: 0
   roomplayed: 0
 --- !u!114 &382054390
@@ -1974,7 +1974,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PlayingCard: 
-  room: {fileID: 0}
+  room: {fileID: 11400000, guid: b6233ac2fd5db7b4881077d5826acfc1, type: 2}
   spawnPoint: {fileID: 1757371106}
   isRoomValid: 0
   roomplayed: 1
@@ -2403,7 +2403,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PlayingCard: 
   room: {fileID: 0}
-  spawnPoint: {fileID: 1794603977}
+  spawnPoint: {fileID: 1646667595}
   isRoomValid: 0
   roomplayed: 0
 --- !u!114 &1100798664
@@ -2885,7 +2885,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PlayingCard: 
   room: {fileID: 0}
-  spawnPoint: {fileID: 1794603977}
+  spawnPoint: {fileID: 52626378}
   isRoomValid: 0
   roomplayed: 0
 --- !u!114 &1429313992
@@ -3213,7 +3213,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PlayingCard: 
   room: {fileID: 0}
-  spawnPoint: {fileID: 52626378}
+  spawnPoint: {fileID: 298693927}
   isRoomValid: 0
   roomplayed: 0
 --- !u!114 &1556568546
@@ -3507,6 +3507,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rooms: []
+  defaultRoom: {fileID: 6008516789037307041, guid: 84afd971952fad9409b4fcc9c6e283fc, type: 3}
   hasPlayed: 0
 --- !u!1 &1757371105
 GameObject:
