@@ -3,7 +3,7 @@ using UnityEngine.EventSystems;
 
 public class BlueText : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
-    public GameObject blueTextObject;
+    public GameObject blueTextObject; //text object to be displayed
 
     void Start()
     {
