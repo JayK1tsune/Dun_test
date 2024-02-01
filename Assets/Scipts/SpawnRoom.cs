@@ -50,14 +50,12 @@ public class SpawnRoom : MonoBehaviour
     {
         foreach (GameObject r in rooms)
         {
+            hasPlayed = true;
             dungeonSlot = r.GetComponent<DungeonSlot>();
-            if (dungeonSlot.room != null && dungeonSlot.isRoomValid == true)
+            if (dungeonSlot.room != null)
             {
-                Card card = dungeonSlot.room.GetComponent<Card>();
-                //instantiate the room prefab from the dungeon slot script
-                GameObject room = Instantiate(card.CardData.roomPrefab, dungeonSlot.spawnPoint.position, Quaternion.identity, dungeonSlot.spawnPoint);
-                //set the room to the room prefab
-                dungeonSlot.room = room;
+                //spawn room that has the atatched prefab on the card 
+                Instantiate(dungeonSlot.room, dungeonSlot.spawnPoint.position, Quaternion.identity, dungeonSlot.spawnPoint);
 
             }
             else
