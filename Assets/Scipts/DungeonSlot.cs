@@ -35,19 +35,19 @@ public class DungeonSlot : MonoBehaviour, IDropHandler
         //}
     }
 
-    // void FixedUpdate()
-    // {
-    //     //Removing the room if the slot is empty
-    //     if(gameObject.transform.childCount == 0)    
-    //     {
-    //         Debug.Log(gameObject.transform.childCount);
-    //         DeleteData();
-    //        // Debug.Log("Invalid room type");
-    //     }
-    // }
-    // private void DeleteData(){
-    //     room = null;
-    //     isRoomValid = false;
-    // }
+    void FixedUpdate()
+    {
+        //Removing the room if the slot is empty
+        if(gameObject.transform.childCount == 0)    
+        {
+            //Debug.Log(gameObject.transform.childCount);
+            DeleteData();
+           // Debug.Log("Invalid room type");
+        }
+    }
+    private void DeleteData(){
+        room = null;
+        isRoomValid = false;
+    }
 }
 

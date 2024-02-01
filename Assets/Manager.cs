@@ -41,7 +41,7 @@ public class Manager  : MonoBehaviour
 
     [SerializeField] public GameObject throne;
     [SerializeField] public ScriptableObject So_throne;
-    private bool hasPlayed = false;
+    //private bool hasPlayed = false;
     
    
   

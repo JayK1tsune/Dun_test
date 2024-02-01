@@ -9,7 +9,7 @@ public class Grabber : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragH
 {
     public Image image;
     public ScriptableObject roomPrefab;
-    private bool isClicked = false;
+    //private bool isClicked = false;
     //todo make a card bool to say if played or not, so button will work
     [SerializeField] public bool played = false;
 

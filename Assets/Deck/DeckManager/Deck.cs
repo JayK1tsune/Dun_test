@@ -9,6 +9,7 @@ public class Deck : MonoBehaviour
     [SerializeField] private CardCollection _playerDeck;
     [SerializeField] private Card _cardPrefab; //reference to the card prefab that we will make a copy of with the different card data
     [SerializeField] private Canvas _cardCanvas; //reference to the canvas that the card will be instantiated on
+    [SerializeField] public List<GameObject> _handCardslots; //list of cards in the hand
     private List<Card> _deckpile = new();
     private List<Card> _discardpile = new();
 
@@ -16,6 +17,7 @@ public class Deck : MonoBehaviour
     public List<Card> HandCards {get; private set;} = new();
     private void Awake()
     {
+        
         if(instance == null)
         {
             instance = this;
@@ -24,11 +26,14 @@ public class Deck : MonoBehaviour
         {
             Destroy(gameObject);
         }
+        
     }
 
     private void Start()
     {
+        PopulateHand();
         InstantiateDeck();
+
     }
 
     private void InstantiateDeck()
@@ -69,8 +74,11 @@ public class Deck : MonoBehaviour
             }
             if (_deckpile.Count > 0)
             {
-                HandCards.Add(_deckpile[0]);
-                _deckpile[0].gameObject.SetActive(true);
+                Card drawnCard = _deckpile[0];
+                drawnCard.gameObject.SetActive(true);
+                MoveCardToHand(drawnCard);
+                //HandCards.Add(_deckpile[0]);
+                //_deckpile[0].gameObject.SetActive(true);
                 _deckpile.RemoveAt(0);
             }
 
@@ -85,6 +93,31 @@ public class Deck : MonoBehaviour
             HandCards.Remove(card);
             _discardpile.Add(card);
             card.gameObject.SetActive(false);
+        }
+    }
+
+    private void PopulateHand()
+    {
+        GameObject[] handCardSlots = GameObject.FindGameObjectsWithTag("PlayerHand");
+        _handCardslots.Clear();
+
+        for (int i = handCardSlots.Length - 1; i >= 0; i--)
+        {
+            _handCardslots.Add(handCardSlots[i]);
+        }
+    }
+    
+    private void MoveCardToHand(Card card)
+    {
+        foreach(GameObject cardSlot in _handCardslots)
+        {
+            if(cardSlot.transform.childCount == 0)
+            {
+                card.transform.SetParent(cardSlot.transform);
+                card.transform.localPosition = Vector3.zero;
+                HandCards.Add(card);
+                break;
+            }
         }
     }
 }
