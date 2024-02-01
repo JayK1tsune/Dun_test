@@ -90,7 +90,7 @@ public class MiniMapLocation : MonoBehaviour
                     if (heroCollider.bounds.Intersects(CameraCollider.bounds))
                     {
                         _image.color = Color.yellow;
-                        Debug.Log("Hero in room");
+                       // Debug.Log("Hero in room");
                     }
                 }
             }

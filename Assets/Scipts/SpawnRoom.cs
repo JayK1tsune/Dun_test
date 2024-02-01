@@ -11,7 +11,7 @@ public class SpawnRoom : MonoBehaviour
     Manager manager;
 
     public GameObject[] rooms;
-    [SerializeField] private GameObject defaultRoom;
+    [SerializeField] private GameObject defaultRoom; 
 
     private Button button;
     [HideInInspector]public bool hasPlayed = false;
@@ -29,7 +29,7 @@ public class SpawnRoom : MonoBehaviour
         {
             Debug.Log("Button component found successfully.");
             // Add the listener to the button
-            button.onClick.AddListener(Room);
+            // button.onClick.AddListener(Room);
         }
         
     }
@@ -47,51 +47,51 @@ public class SpawnRoom : MonoBehaviour
 
     }
 
-    void Room() 
-    {
-        foreach (GameObject r in rooms)
-        {
-            dungeonSlot = r.GetComponent<DungeonSlot>();
-            if (dungeonSlot.room != null && dungeonSlot.isRoomValid == true)
-            {
-                Debug.Log("Room is not null");
+    // void Room() 
+    // {
+    //     foreach (GameObject r in rooms)
+    //     {
+    //         dungeonSlot = r.GetComponent<DungeonSlot>();
+    //         if (dungeonSlot.room != null && dungeonSlot.isRoomValid == true)
+    //         {
+                
 
                 
-                DungeonLayoutSpawn dungeonLayoutSpawn = dungeonSlot.room as DungeonLayoutSpawn;
-                if (dungeonLayoutSpawn != null && dungeonLayoutSpawn.roomPrefab != null)
-                {
-                    // Instantiate the room prefab from the ScriptableObject
-                    //can i spawn the room as a child of the slot?
+    //             // //DungeonLayoutSpawn dungeonLayoutSpawn = dungeonSlot.room as DungeonLayoutSpawn;
+    //             // if (dungeonLayoutSpawn != null && dungeonLayoutSpawn.roomPrefab != null)
+    //             // {
+    //             //     // Instantiate the room prefab from the ScriptableObject
+    //             //     //can i spawn the room as a child of the slot?
                     
-                    GameObject room = Instantiate(dungeonLayoutSpawn.roomPrefab, dungeonSlot.spawnPoint.position, Quaternion.identity, dungeonSlot.spawnPoint);
-                    room.name = dungeonLayoutSpawn.roomName;
+    //             //     GameObject room = Instantiate(dungeonLayoutSpawn.roomPrefab, dungeonSlot.spawnPoint.position, Quaternion.identity, dungeonSlot.spawnPoint);
+    //             //     room.name = dungeonLayoutSpawn.roomName;
                     
-                }
-                else
-                {
-                    Debug.LogError("Invalid ScriptableObject or roomPrefab not set");
-                }
-            }
-            if (dungeonSlot.room == null )
-            { 
-                Instantiate(defaultRoom, dungeonSlot.spawnPoint.position, Quaternion.identity, dungeonSlot.spawnPoint);
-                hasPlayed = true;
-                    //Not what i wanted to do, this deletes the card from the slot
-                    //Destroy(dungeonSlot.transform.GetChild(0).gameObject);
-            }
-        }
-        //spawn the waiting room and throne if null through manager
-        DungeonLayoutSpawn dungeonLayoutSpawnWaiting = manager.So_waitingRoom as DungeonLayoutSpawn;
-        DungeonLayoutSpawn dungeonLayoutSpawnThrone = manager.So_throne as DungeonLayoutSpawn;
-        GameObject waitingroom = Instantiate(dungeonLayoutSpawnWaiting.roomPrefab, manager.waitingRoom.transform.position, Quaternion.identity, manager.waitingRoom.transform);
-        waitingroom.name = dungeonLayoutSpawnWaiting.roomName;
+    //             // }
+    //             else
+    //             {
+    //                 Debug.LogError("Invalid ScriptableObject or roomPrefab not set");
+    //             }
+    //         }
+    //         if (dungeonSlot.room == null )
+    //         { 
+    //             Instantiate(defaultRoom, dungeonSlot.spawnPoint.position, Quaternion.identity, dungeonSlot.spawnPoint);
+    //             hasPlayed = true;
+    //                 //Not what i wanted to do, this deletes the card from the slot
+    //                 //Destroy(dungeonSlot.transform.GetChild(0).gameObject);
+    //         }
+    //     }
+    //     //spawn the waiting room and throne if null through manager
+    //     DungeonLayoutSpawn dungeonLayoutSpawnWaiting = manager.So_waitingRoom as DungeonLayoutSpawn;
+    //     DungeonLayoutSpawn dungeonLayoutSpawnThrone = manager.So_throne as DungeonLayoutSpawn;
+    //     GameObject waitingroom = Instantiate(dungeonLayoutSpawnWaiting.roomPrefab, manager.waitingRoom.transform.position, Quaternion.identity, manager.waitingRoom.transform);
+    //     waitingroom.name = dungeonLayoutSpawnWaiting.roomName;
 
-        GameObject Throne = Instantiate(dungeonLayoutSpawnThrone.roomPrefab, manager.throne.transform.position, Quaternion.identity, manager.throne.transform);
-        Throne.name = dungeonLayoutSpawnThrone.roomName;
-        //make waiting room and throne played true
+    //     GameObject Throne = Instantiate(dungeonLayoutSpawnThrone.roomPrefab, manager.throne.transform.position, Quaternion.identity, manager.throne.transform);
+    //     Throne.name = dungeonLayoutSpawnThrone.roomName;
+    //     //make waiting room and throne played true
 
 
-    }
+    // }
 
 
 }

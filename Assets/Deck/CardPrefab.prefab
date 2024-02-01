@@ -302,7 +302,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 5
+  m_fontSize: 14.45
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -697,7 +697,7 @@ MonoBehaviour:
   strengthIcon: {fileID: 21300000, guid: 35dff74af9f98a840a9e29128bb06ee1, type: 3}
   magicIcon: {fileID: 21300000, guid: 803a60ccd7ce1a0488a240540f2ca30d, type: 3}
   swiftIcon: {fileID: 21300000, guid: d4fc0ba4422b2fa408e972946f50a49c, type: 3}
-  roomPrefab: {fileID: 6008516789037307041, guid: 84afd971952fad9409b4fcc9c6e283fc, type: 3}
+  roomPrefab: {fileID: 4646868111192243645, guid: dd572c6cdcbeba14c94a5c4940388fea, type: 3}
 --- !u!114 &6723203314637330302
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -723,6 +723,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ab77cfc9d0d49844faaa3a5697ab3198, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  image: {fileID: 334376126759097207}
+  parentAfterDrag: {fileID: 0}
 --- !u!1 &9070983792947070918
 GameObject:
   m_ObjectHideFlags: 0
